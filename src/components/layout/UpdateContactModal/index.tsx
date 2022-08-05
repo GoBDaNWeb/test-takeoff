@@ -1,5 +1,5 @@
 // * hooks 
-import {useAddContactModal} from './useAddContactModal'
+import {useUpdateContactModal} from './useUpdateContactModal'
 
 // * styles 
 import styles from './Modal.module.scss'
@@ -7,12 +7,13 @@ import styles from './Modal.module.scss'
 // * components 
 import ModalForm from './ModalForm'
 
-const AddContactModal = () => {
+
+const UpdateContactModal = () => {
     const {
         commands: {
             handleOpenModal
         }
-    } = useAddContactModal()
+    } = useUpdateContactModal()
 
     return (
         <div 
@@ -24,4 +25,4 @@ const AddContactModal = () => {
     )
 }
 
-export default AddContactModal
+export default UpdateContactModal

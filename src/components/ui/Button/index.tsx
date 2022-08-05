@@ -1,9 +1,16 @@
+// * react
 import React from 'react'
-import styles from './Button.module.scss'
 import {IButtonProps} from './types'
-const Button: React.FC<IButtonProps> = ({children}) => {
+// * styles
+import styles from './Button.module.scss'
+
+const Button: React.FC<IButtonProps> = ({children, func, color, disable}) => {
     return (
-        <button className={styles.btn}>
+        <button 
+            onClick={func}
+            className={color === 'default' ? styles.btn : styles.btn_delete}
+            disabled={disable}
+        >
             {children}
         </button>
     )

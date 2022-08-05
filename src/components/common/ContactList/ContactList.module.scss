@@ -1,5 +1,28 @@
-.contactList {
+ .contactList {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+}
+.pagination_btns {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.6rem;
+    button {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        background: none;
+        border: 1px solid #14B8A6;
+        border-radius: 9999px;
+        padding: .4rem;
+        color: #14B8A6;
+        &:disabled {
+            color: rgba(20, 184, 166, .3);
+            border: 1px solid rgba(20, 184, 166, 0.302);
+            cursor: default;
+        }
+    }
 }

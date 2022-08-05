@@ -1,49 +1,69 @@
+// * react 
+import {IContactItemProps} from './types'
+
+// * hooks 
+import {useContactItem} from './useContactItem'
+
 // * styles 
 import styles from './ContactItem.module.scss'
 
 // * icons 
 import {AiFillEdit, AiFillDelete} from 'react-icons/ai'
 
-const ContactItem = () => {
+const ContactItem: React.FC<IContactItemProps> = ({contact}) => {
+    const {
+        commands: {
+            openUpdateModal,
+            openDeleteModal
+        }
+    } = useContactItem()
+
     return (
         <div className={styles.contactItem}>
             <ul>
                 <li>
                     Username
                     <span>
-                        username
+                        {contact.username}
                     </span>
                 </li>
                 <li>
                     Full Name
                     <span>
-                        Admin Admins 
+                        {contact.fullname}
                     </span>
                 </li>
                 <li>
                     Email
                     <span>
-                        Admin@gmail.com
+                        {contact.email}
                     </span>
                 </li>
                 <li>
                     Website
                     <span>
-                        google.com
+                        {contact.website}
                     </span>
                 </li>
                 <li>
                     Phone
                     <span>
-                        024-648-3804
+                        {contact.phone}
                     </span>
                 </li>
             </ul>
             <div className={styles.contactBtns}>
-                <button className={styles.edit_btn}>
+                <button 
+                    onClick={() => openUpdateModal(contact)}
+                    className={styles.edit_btn}
+                >
+                    
                     <AiFillEdit className={styles.icon}/>
                 </button>
-                <button className={styles.delete_btn}>
+                <button 
+                    onClick={() => openDeleteModal(contact)}
+                    className={styles.delete_btn}
+                >
                     <AiFillDelete className={styles.icon}/>
                 </button>
             </div>

@@ -11,4 +11,22 @@
         background: #14B8A6;
         color: white;
     }
+    &:disabled {
+        pointer-events: none;
+        opacity: 50%;
+    }
+}
+.btn_delete {
+    background: none;
+    border-radius: 2rem;
+    border: 1px solid #EF4444;
+    color: #EF4444;
+    font-size: 1.3rem;
+    padding: .3rem 2rem;
+    cursor: pointer;
+    transition: 300ms ease;
+    &:hover {
+        background: #EF4444;
+        color: white;
+    }
 }
