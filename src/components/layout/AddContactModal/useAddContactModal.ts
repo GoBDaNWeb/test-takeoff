@@ -1,5 +1,5 @@
 // * react 
-import React, {useState} from 'react'
+import React, {useState, useCallback} from 'react'
 
 // * redux 
 import { useSelector, useDispatch } from 'react-redux';
@@ -24,7 +24,7 @@ export function useAddContactModal() {
         dispatch(handleOpenCreateModal())
     }
 
-    const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>): void => {
         const {value} = e.target
         const {name} = e.target
         if (name === 'username') {
@@ -42,7 +42,7 @@ export function useAddContactModal() {
         if (name === 'phone') {
             setPhone(value)
         }
-    }
+    }, [])
 
     const createContact = () => {
         const contact = {

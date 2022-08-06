@@ -1,10 +1,13 @@
+// react 
+import {memo} from 'react'
+
 // * hooks 
 import {useContactList} from './useContactList'
 
 // * components
 import ContactItem from '../ContactItem'
 
-const ContactsCondition = () => {
+const ContactsCondition = memo(() => {
     const {
         models: {
             contacts,
@@ -26,6 +29,6 @@ const ContactsCondition = () => {
             }
         </>
     )
-}
+})
 
 export default ContactsCondition

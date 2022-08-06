@@ -1,3 +1,6 @@
+// react 
+import {memo} from 'react'
+
 // * hooks 
 import {useContactList} from './useContactList'
 
@@ -7,7 +10,7 @@ import styles from './ContactList.module.scss'
 // * icons 
 import {BsArrowLeftShort, BsArrowRightShort} from 'react-icons/bs'
 
-const PaginationButtons = () => {
+const PaginationButtons = memo(() => {
     const {
         models: {
             page,
@@ -45,6 +48,6 @@ const PaginationButtons = () => {
             }
         </>
     )
-}
+})
 
 export default PaginationButtons

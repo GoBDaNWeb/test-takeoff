@@ -1,4 +1,5 @@
 // * react 
+import {useCallback} from 'react'
 import {IContact} from './types'
 
 // * redux 
@@ -8,15 +9,15 @@ import { handleOpenUpdateModal, handleOpenDeleteModal, setSelectContact } from '
 export function useContactItem() {
     const dispatch = useDispatch()
 
-    const openUpdateModal = (contact: IContact) => {
+    const openUpdateModal = useCallback((contact: IContact) => {
         dispatch(setSelectContact(contact))
         dispatch(handleOpenUpdateModal())
-    }
+    }, [])
 
-    const openDeleteModal = (contact: IContact) => {
+    const openDeleteModal = useCallback((contact: IContact) => {
         dispatch(setSelectContact(contact))
         dispatch(handleOpenDeleteModal())
-    }
+    }, [])
 
     return {
         commands: {

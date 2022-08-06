@@ -1,5 +1,5 @@
 // * react 
-import React from 'react'
+import React, {useCallback} from 'react'
 
 // * redux 
 import { useSelector, useDispatch } from 'react-redux';
@@ -11,10 +11,10 @@ export function useSearch() {
     const dispatch = useDispatch()
     const searchValue = useSelector(selectSearchValue)
 
-    const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>): void => {
         const {value} = e.target
         dispatch(setSearchValue(value))
-    }  
+    }, [])
     
     return {
         models: {

@@ -1,3 +1,6 @@
+// * react
+import {memo} from 'react'
+
 // * hooks 
 import {useUpdateContactModal} from './useUpdateContactModal'
 
@@ -8,7 +11,7 @@ import styles from './Modal.module.scss'
 import ModalForm from './ModalForm'
 
 
-const UpdateContactModal = () => {
+const UpdateContactModal = memo(() => {
     const {
         commands: {
             handleOpenModal
@@ -23,6 +26,6 @@ const UpdateContactModal = () => {
             <ModalForm/>
         </div>
     )
-}
+})
 
 export default UpdateContactModal

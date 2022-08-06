@@ -1,3 +1,6 @@
+// * react
+import {memo} from 'react'
+
 // * hooks
 import {useHeader} from './useHeader'
 
@@ -11,7 +14,7 @@ import {ImExit} from 'react-icons/im'
 // * components 
 import Search from '../../common/Search'
 
-const Header = () => {
+const Header = memo(() => {
     const {
         commands: {
             handleLogout
@@ -30,6 +33,6 @@ const Header = () => {
         </div>
     )
 
-}
+})
 
 export default Header

@@ -25,7 +25,7 @@ export function useUpdateContactModal() {
         dispatch(handleOpenUpdateModal())
     }
 
-    const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>): void => {
         const {value} = e.target
         const {name} = e.target
         if (name === 'username') {
@@ -43,7 +43,7 @@ export function useUpdateContactModal() {
         if (name === 'phone') {
             setPhone(value)
         }
-    }
+    }, [])
 
     const handleUpdateContact = () => {
         if (selectedContact) {

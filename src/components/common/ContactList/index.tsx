@@ -1,3 +1,6 @@
+// react 
+import {memo} from 'react'
+
 // * hooks 
 import {useContactList} from './useContactList'
 
@@ -9,7 +12,7 @@ import ContactsCondition from './ContactsCondition'
 import SearchedCondition from './SearchedCondition'
 import PaginationButtons from './PaginationButtons'
 
-const ContactList = () => {
+const ContactList = memo(() => {
     const {
         models: {
             searchValue
@@ -28,6 +31,6 @@ const ContactList = () => {
             <PaginationButtons/>
         </>
     )
-}
+})
 
 export default ContactList

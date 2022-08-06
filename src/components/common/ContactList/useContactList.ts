@@ -1,5 +1,5 @@
 // * react 
-import {useState, useEffect, useCallback} from 'react'
+import {useState, useEffect} from 'react'
 
 // * hooks 
 import {useDebounce} from '../../../hooks/debounce'
@@ -22,18 +22,18 @@ export function useContactList() {
 
     const debounced = useDebounce(searchValue)
     
-    const { data: contacts, error, isLoading } = useGetContactsQuery(page)
+    const { data: contacts, isLoading } = useGetContactsQuery(page)
     const { data: allContact, refetch: refetchAllcontacts } = useGetAllContactsQuery()
     const [fetchContacts, { isLoading: loadingSeacredContacts, data: searhedContacts }] = useLazyGetSearchContactsQuery()
 
 
-    const handleNextPage = useCallback(() => {
+    const handleNextPage = () => {
         dispatch(incPage())
-    }, [])
+    }
 
-    const handlePrevPage =  useCallback(() => {
+    const handlePrevPage = () => {
         dispatch(decPage())
-    }, [])
+    }
     
 
     useEffect(() => {

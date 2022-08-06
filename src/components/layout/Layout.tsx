@@ -1,4 +1,5 @@
 // * react
+import {memo} from 'react'
 import {ILayoutProps} from './types'
 
 // * hooks 
@@ -13,7 +14,7 @@ import AddContactModal from './AddContactModal'
 import UpdateContactModal from './UpdateContactModal'
 import DeleteContactModal from './DeleteContactModal'
 
-const Layout: React.FC<ILayoutProps> = ({children}) => {
+const Layout: React.FC<ILayoutProps> = memo(({children}) => {
     const {
         models: {
             isOpenCreateModal,
@@ -46,6 +47,6 @@ const Layout: React.FC<ILayoutProps> = ({children}) => {
             </div>
         </>
     )
-}
+})
 
 export default Layout

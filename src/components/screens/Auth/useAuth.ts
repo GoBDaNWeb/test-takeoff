@@ -1,5 +1,5 @@
 // * react 
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useCallback} from 'react'
 import {useNavigate } from 'react-router-dom'
 
 // * redux 
@@ -21,7 +21,7 @@ export function useAuth() {
     const {data: authData} = useGetAuthDataQuery()
     const user = useSelector(selectUser)
 
-    const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>): void => {
         const {value} = e.target
         const {name} = e.target
         if (name === 'login') {
@@ -30,7 +30,7 @@ export function useAuth() {
         if (name === 'password') {
             setPassword(value)
         }
-    }
+    }, [])
 
     const handleLogin = () => {
         if (authData?.login === loginValue && authData?.password === password) {

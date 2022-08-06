@@ -1,10 +1,13 @@
+// react 
+import {memo} from 'react'
+
 // * hooks 
 import {useContactList} from './useContactList'
 
 // * components
 import ContactItem from '../ContactItem'
 
-const SearchedCondition = () => {
+const SearchedCondition = memo(() => {
     const {
         models: {
             loadingSeacredContacts,
@@ -33,6 +36,6 @@ const SearchedCondition = () => {
             }
         </>
     )
-}
+})
 
 export default SearchedCondition

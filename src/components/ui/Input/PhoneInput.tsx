@@ -1,5 +1,5 @@
 // * react
-import React from "react"
+import React, {memo} from "react"
 import InputMask from "react-input-mask";
 import {IInputProps} from './types'
 
@@ -7,8 +7,8 @@ import {IInputProps} from './types'
 import styles from './Input.module.scss'
 
 
-const PhoneInput: React.FC<IInputProps> = ({placeholder, name, func, value}) => {
+const PhoneInput: React.FC<IInputProps> = memo(({placeholder, name, func, value}) => {
   return <InputMask className={styles.input} mask="+4\9 99 999 99" onChange={func} value={value} placeholder={placeholder} name={name}/>;
-}
+})
 
 export default PhoneInput

@@ -1,4 +1,5 @@
 // * react 
+import {memo} from 'react'
 import {IContactItemProps} from './types'
 
 // * hooks 
@@ -10,7 +11,7 @@ import styles from './ContactItem.module.scss'
 // * icons 
 import {AiFillEdit, AiFillDelete} from 'react-icons/ai'
 
-const ContactItem: React.FC<IContactItemProps> = ({contact}) => {
+const ContactItem: React.FC<IContactItemProps> = memo(({contact}) => {
     const {
         commands: {
             openUpdateModal,
@@ -69,6 +70,6 @@ const ContactItem: React.FC<IContactItemProps> = ({contact}) => {
             </div>
         </div>
     )
-}
+})
 
 export default ContactItem

@@ -1,3 +1,6 @@
+// * react 
+import {memo} from 'react'
+
 // * hooks 
 import {useAddContactModal} from './useAddContactModal'
 
@@ -10,7 +13,7 @@ import Button from '../../ui/Button'
 import PhoneInput from '../../ui/Input/PhoneInput'
 
 
-const ModalForm = () => {
+const ModalForm = memo(() => {
     const {
         models: {
             username,
@@ -79,6 +82,6 @@ const ModalForm = () => {
             </Button>
         </div>
     )
-}
+})
 
 export default ModalForm
